@@ -1,0 +1,28 @@
+===BEGIN DNS CHALLENGE SUBMISSION===
+student_id: 6705142014
+assigned_zone: basalt.lab
+timestamp: 2026-09-22T03:28:28Z
+---[zone file: /etc/bind/db.basalt.lab]---
+$TTL 86400
+@   IN  SOA ns1.basalt.lab. admin.basalt.lab. (
+        2026092201
+        3600
+        1800
+        604800
+        86400
+)
+@       IN  NS  ns1.basalt.lab.
+ns1     IN  A   192.168.99.1
+www     IN  A   192.168.99.29
+mail    IN  A   192.168.99.89
+wiki    IN  A   192.168.99.130
+---[named-checkzone]---
+zone basalt.lab/IN: loaded serial 2026092201
+OK
+---[dig @127.0.0.1 www.basalt.lab]---
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 28441
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+; EDNS: version: 0, flags:; udp: 1232
+;www.basalt.lab.			IN	A
+www.basalt.lab.		86400	IN	A	192.168.99.29
+===END DNS CHALLENGE SUBMISSION===
